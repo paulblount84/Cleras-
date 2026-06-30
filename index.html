@@ -109,7 +109,7 @@
 
   /* Audience doorways */
   .doorways {
-    padding: 24px 0 72px;
+    padding: 24px 0 32px;
   }
   .doorways h2 {
     font-size: 26px;
@@ -229,48 +229,85 @@
     font-size: 14.5px;
     font-weight: 500;
     display: flex; justify-content: space-between; align-items: center;
+    gap: 12px;
+    min-height: 56px;
   }
+  .crisis-links a span:first-child { flex: 1; }
   .crisis-links a:hover { background: rgba(255,255,255,0.16); }
   .crisis-links .num { font-family: 'Fraunces', serif; font-weight: 600; }
 
   /* Pillar library */
   .library {
-    padding: 72px 0;
+    padding: 24px 0 72px;
   }
   .library .head {
     display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 36px; flex-wrap: wrap; gap: 12px;
   }
   .library h2 { font-size: 26px; }
   .library .view-all { font-size: 14px; font-weight: 600; color: var(--clay-deep); }
-  .pillar-grid {
+  .pillar-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .pillar-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-  }
-  @media (max-width: 900px) { .pillar-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px) { .pillar-grid { grid-template-columns: 1fr; } }
-  .pillar-card {
-    border-top: 3px solid var(--ink);
-    padding: 20px 4px;
-  }
-  .pillar-card.alt { border-top-color: var(--clay); }
-  .pillar-card h3 { font-size: 16.5px; margin-bottom: 8px; }
-  .pillar-card p { font-size: 13.5px; color: var(--slate); margin-bottom: 10px; }
-  .pillar-card .tag { font-size: 12px; color: var(--teal-deep); font-weight: 600; }
-
-  /* Trust band */
-  .trust {
-    background: var(--paper-warm);
-    padding: 64px 0;
-    border-top: 1px solid var(--line);
+    grid-template-columns: 100px 1fr 1fr 24px;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 4px;
     border-bottom: 1px solid var(--line);
+    transition: background 0.15s ease, padding-left 0.15s ease;
   }
-  .trust .wrap { display: grid; grid-template-columns: 84px 1fr; gap: 24px; align-items: start; }
-  @media (max-width: 560px) { .trust .wrap { grid-template-columns: 1fr; } }
-  .avatar { width: 84px; height: 84px; border-radius: 50%; background: var(--ink); }
-  .trust h2 { font-size: 21px; margin-bottom: 10px; }
-  .trust p { font-size: 15px; color: var(--slate); max-width: 620px; margin-bottom: 14px; }
-  .trust .policy { font-size: 14px; font-weight: 600; color: var(--clay-deep); }
+  .pillar-row:first-child { border-top: 1px solid var(--line); }
+  .pillar-row:hover {
+    background: var(--paper-warm);
+    padding-left: 10px;
+  }
+  .pillar-row .tag {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+  }
+  .pillar-row .title {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .pillar-row .desc {
+    font-size: 13.5px;
+    color: var(--slate);
+  }
+  .pillar-row .arrow {
+    color: var(--clay);
+    font-size: 15px;
+    text-align: right;
+  }
+  @media (max-width: 760px) {
+    .pillar-row {
+      grid-template-columns: 1fr 24px;
+      grid-template-areas:
+        "tag arrow"
+        "title arrow"
+        "desc desc";
+      row-gap: 4px;
+    }
+    .pillar-row .tag { grid-area: tag; }
+    .pillar-row .title { grid-area: title; }
+    .pillar-row .desc { grid-area: desc; }
+    .pillar-row .arrow { grid-area: arrow; align-self: start; }
+  }
+
+  .policy-link {
+    display: block;
+    margin-top: 32px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--clay-deep);
+    text-align: left;
+  }
 
   /* Footer */
   footer { background: var(--ink-deep); color: #C9D2DC; padding: 56px 0 28px; }
@@ -361,6 +398,67 @@
     </div>
   </section>
 
+  <section class="library">
+    <div class="wrap">
+      <div class="head">
+        <h2>Start with the essentials</h2>
+        <a class="view-all" href="#">View the full library →</a>
+      </div>
+      <div class="pillar-list">
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Anxiety Disorders</span>
+          <span class="desc">What it is, what it isn't, and what actually helps.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Schizophrenia Spectrum &amp; Psychosis</span>
+          <span class="desc">Early signs, what psychosis feels like, and how to respond.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Trauma &amp; PTSD</span>
+          <span class="desc">How trauma shows up — and how recovery actually works.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Bipolar Disorder</span>
+          <span class="desc">Telling mood shifts apart from the disorder itself.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Depression &amp; Mood</span>
+          <span class="desc">Beyond sadness — symptoms, causes, and care paths.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">ADHD</span>
+          <span class="desc">In kids and adults — what's different, what's not.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Substance Use</span>
+          <span class="desc">Understanding use, dependence, and the path to care.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Grief &amp; Loss</span>
+          <span class="desc">When grief is grief — and when it becomes something more.</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <a class="policy-link" href="#">Read our editorial policy →</a>
+    </div>
+  </section>
+
   <section class="crisis-band" id="crisis">
     <div class="wrap">
       <div class="grid">
@@ -369,73 +467,11 @@
           <p>You don't need the perfect words. You need a next step. Here's where to start.</p>
         </div>
         <div class="crisis-links">
-          <a href="#"><span>Call or text the 988 Suicide &amp; Crisis Lifeline</span><span class="num">988</span></a>
-          <a href="#"><span>What happens during a psychiatric evaluation</span><span>→</span></a>
-          <a href="#"><span>How to help someone who refuses treatment</span><span>→</span></a>
-          <a href="#"><span>What is a 5150 / involuntary hold?</span><span>→</span></a>
+          <a href="#"><span>Call or text the 988 Lifeline</span><span class="num">988</span></a>
+          <a href="#"><span>What to expect at an evaluation</span><span>→</span></a>
+          <a href="#"><span>When someone refuses treatment</span><span>→</span></a>
+          <a href="#"><span>What is a 5150 involuntary hold</span><span>→</span></a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="library">
-    <div class="wrap">
-      <div class="head">
-        <h2>Start with the essentials</h2>
-        <a class="view-all" href="#">View the full library →</a>
-      </div>
-      <div class="pillar-grid">
-        <div class="pillar-card">
-          <div class="tag">CONDITION</div>
-          <h3>Anxiety Disorders</h3>
-          <p>What it is, what it isn't, and what actually helps.</p>
-        </div>
-        <div class="pillar-card alt">
-          <div class="tag">CONDITION</div>
-          <h3>Schizophrenia Spectrum &amp; Psychosis</h3>
-          <p>Early signs, what psychosis feels like, and how to respond.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="tag">CONDITION</div>
-          <h3>Trauma &amp; PTSD</h3>
-          <p>How trauma shows up — and how recovery actually works.</p>
-        </div>
-        <div class="pillar-card alt">
-          <div class="tag">CONDITION</div>
-          <h3>Bipolar Disorder</h3>
-          <p>Telling mood shifts apart from the disorder itself.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="tag">CONDITION</div>
-          <h3>Depression &amp; Mood</h3>
-          <p>Beyond sadness — symptoms, causes, and care paths.</p>
-        </div>
-        <div class="pillar-card alt">
-          <div class="tag">CONDITION</div>
-          <h3>ADHD</h3>
-          <p>In kids and adults — what's different, what's not.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="tag">CONDITION</div>
-          <h3>Substance Use</h3>
-          <p>Understanding use, dependence, and the path to care.</p>
-        </div>
-        <div class="pillar-card alt">
-          <div class="tag">CONDITION</div>
-          <h3>Grief &amp; Loss</h3>
-          <p>When grief is grief — and when it becomes something more.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="trust">
-    <div class="wrap">
-      <div class="avatar"></div>
-      <div>
-        <h2>Written and reviewed by a working clinician</h2>
-        <p>Every article on Cleras is written or reviewed by a Licensed Clinical Social Worker with direct experience in crisis intervention, emergency psychiatric evaluation, and care for severe mental illness — including work alongside law enforcement and veteran populations. No content is published without clinical review.</p>
-        <a class="policy" href="#">Read our editorial &amp; sourcing policy →</a>
       </div>
     </div>
   </section>
