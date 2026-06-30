@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Parents &amp; Caregivers — Cleras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1B2A41;
+    --ink-deep: #131F30;
+    --paper: #FAF7F2;
+    --paper-warm: #F3EEE5;
+    --clay: #C1693C;
+    --clay-deep: #A8552E;
+    --teal: #2F6E66;
+    --teal-deep: #25564F;
+    --slate: #5B6B7C;
+    --text: #1A1A1A;
+    --line: #DDD5C7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Public Sans', sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+  /* Crisis utility bar */
+  .crisis-bar {
+    background: var(--ink-deep);
+    color: var(--paper);
+    font-size: 13.5px;
+    padding: 9px 0;
+  }
+  .crisis-bar .wrap { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; text-align: center; }
+  .crisis-bar strong { color: #F2C9B0; font-weight: 600; }
+  .crisis-bar .sep { opacity: 0.4; }
+
+  /* Header */
+  header.site {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    position: sticky; top: 0; z-index: 50;
+  }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  nav.main { display: flex; gap: 28px; }
+  nav.main a { font-size: 15px; font-weight: 500; color: var(--ink); padding: 6px 0; border-bottom: 2px solid transparent; }
+  nav.main a:hover { border-bottom-color: var(--clay); }
+  .search-btn { background: none; border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; font-size: 14px; color: var(--slate); cursor: pointer; }
+  @media (max-width: 860px) { nav.main { display: none; } }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 18px 0 0;
+    font-size: 13.5px;
+    color: var(--slate);
+  }
+  .breadcrumb a { color: var(--slate); }
+  .breadcrumb a:hover { color: var(--clay-deep); }
+  .breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+  .breadcrumb .current { color: var(--ink); font-weight: 600; }
+
+  /* Page hero */
+  .page-hero {
+    padding: 28px 0 36px;
+  }
+  .page-hero .eyebrow {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 14px;
+  }
+  .page-hero h1 {
+    font-size: clamp(28px, 4.5vw, 42px);
+    max-width: 680px;
+    margin-bottom: 16px;
+  }
+  .page-hero p {
+    font-size: 17px;
+    color: var(--slate);
+    max-width: 580px;
+  }
+
+  /* Concern routing — equal boxes */
+  .concerns {
+    padding: 8px 0 56px;
+  }
+  .concerns h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .concern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 760px) { .concern-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .concern-grid { grid-template-columns: 1fr; } }
+
+  .concern {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .concern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27,42,65,0.07);
+    border-color: var(--clay);
+  }
+  .concern:active { transform: scale(0.98); }
+  .concern .q {
+    font-family: 'Fraunces', serif;
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .concern .a {
+    font-size: 13px;
+    color: var(--slate);
+  }
+
+  /* Article list — reusing the homepage list-row pattern */
+  .library {
+    padding: 16px 0 64px;
+    border-top: 1px solid var(--line);
+  }
+  .library .head {
+    display: flex; justify-content: space-between; align-items: baseline; margin: 36px 0 8px; flex-wrap: wrap; gap: 12px;
+  }
+  .library h2 { font-size: 22px; }
+  .library .view-all { font-size: 13.5px; font-weight: 600; color: var(--clay-deep); }
+
+  .pillar-list { display: flex; flex-direction: column; }
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 1fr 24px;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.15s ease, padding-left 0.15s ease;
+  }
+  .pillar-row:first-child { border-top: 1px solid var(--line); }
+  .pillar-row:hover { background: var(--paper-warm); padding-left: 10px; }
+  .pillar-row .tag {
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--teal-deep);
+  }
+  .pillar-row .title { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; color: var(--ink); }
+  .pillar-row .desc { font-size: 13.5px; color: var(--slate); }
+  .pillar-row .arrow { color: var(--clay); font-size: 15px; text-align: right; }
+
+  @media (max-width: 760px) {
+    .pillar-row {
+      grid-template-columns: 1fr 24px;
+      grid-template-areas: "tag arrow" "title arrow" "desc desc";
+      row-gap: 4px;
+    }
+    .pillar-row .tag { grid-area: tag; }
+    .pillar-row .title { grid-area: title; }
+    .pillar-row .desc { grid-area: desc; }
+    .pillar-row .arrow { grid-area: arrow; align-self: start; }
+  }
+
+  /* Crisis band */
+  .crisis-band {
+    background: var(--teal);
+    color: var(--paper);
+    padding: 48px 0;
+  }
+  .crisis-band .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
+  @media (max-width: 760px) { .crisis-band .grid { grid-template-columns: 1fr; } }
+  .crisis-band h2 { color: #fff; font-size: 23px; margin-bottom: 10px; }
+  .crisis-band p { color: #DCEAE7; font-size: 14.5px; max-width: 440px; }
+  .crisis-links { display: flex; flex-direction: column; gap: 10px; }
+  .crisis-links a {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; min-height: 52px;
+  }
+  .crisis-links a:hover { background: rgba(255,255,255,0.16); }
+  .crisis-links .num { font-family: 'Fraunces', serif; font-weight: 600; }
+
+  /* Footer */
+  footer { background: var(--ink-deep); color: #C9D2DC; padding: 48px 0 26px; }
+  .footer-bottom { font-size: 13px; color: #7E8CA0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer .logo { color: var(--paper); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+  <div class="crisis-bar">
+    <div class="wrap">
+      <span>In crisis right now?</span>
+      <span class="sep">·</span>
+      <span><strong>Call or text 988</strong></span>
+      <span class="sep">·</span>
+      <a href="#crisis" style="text-decoration: underline;">See all crisis resources →</a>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="../../index.html">Cleras</a>
+      <nav class="main">
+        <a href="../../index.html#">Conditions</a>
+        <a href="../../index.html#crisis">Crisis &amp; Safety</a>
+        <a href="#" class="current-nav">For Families</a>
+        <a href="../../index.html#">For Professionals</a>
+        <a href="../../index.html#">About</a>
+      </nav>
+      <button class="search-btn">Search</button>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="wrap">
+      <a href="../../index.html">Home</a><span class="sep">/</span>
+      <span>Guides</span><span class="sep">/</span>
+      <span class="current">For Parents &amp; Caregivers</span>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">For Parents &amp; Caregivers</span>
+      <h1>Understand what you're seeing — and how to help.</h1>
+      <p>You don't need a clinical degree to support your child well. Start with the question that's actually on your mind right now.</p>
+    </div>
+  </section>
+
+  <section class="concerns">
+    <div class="wrap">
+      <h2>What's going on right now?</h2>
+      <div class="concern-grid">
+        <a class="concern" href="#">
+          <span class="q">My child seems different lately</span>
+          <span class="a">Changes in mood, energy, or behavior that worry you.</span>
+        </a>
+        <a class="concern" href="#">
+          <span class="q">I think it might be ADHD</span>
+          <span class="a">Focus, impulsivity, and what to do next.</span>
+        </a>
+        <a class="concern" href="#">
+          <span class="q">My teenager won't talk to me</span>
+          <span class="a">Reaching a child who's pulling away.</span>
+        </a>
+        <a class="concern" href="#">
+          <span class="q">We just got a diagnosis</span>
+          <span class="a">Where to start, and what it does (and doesn't) mean.</span>
+        </a>
+        <a class="concern" href="#">
+          <span class="q">I'm worried about self-harm or suicide</span>
+          <span class="a">What to ask, and what to do today.</span>
+        </a>
+        <a class="concern" href="#">
+          <span class="q">I just want to understand more</span>
+          <span class="a">General guidance for raising a mentally healthy kid.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="library">
+    <div class="wrap">
+      <div class="head">
+        <h2>Guides for parents &amp; caregivers</h2>
+        <a class="view-all" href="#">View all parent guides →</a>
+      </div>
+      <div class="pillar-list">
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">Is this normal teen behavior, or something more?</span>
+          <span class="desc">A practical way to tell the difference.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">Anxiety in children: what's typical vs. what's not</span>
+          <span class="desc">Age-by-age signs and when to seek support.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">ADHD in children, explained simply</span>
+          <span class="desc">What it is, what it isn't, and what helps.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">How to talk to your child about seeing a therapist</span>
+          <span class="desc">Scripts and approaches that don't create shame.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">What to expect at your child's first evaluation</span>
+          <span class="desc">Walking in informed instead of anxious.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">Supporting a sibling when one child has a diagnosis</span>
+          <span class="desc">Caring for the whole family, not just one child.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">When your teen refuses to engage in treatment</span>
+          <span class="desc">What's actually in your control, and what isn't.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="pillar-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">Understanding a new diagnosis: where to start</span>
+          <span class="desc">The first steps, in plain language.</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="crisis-band" id="crisis">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <h2>If your child is in crisis right now</h2>
+          <p>You don't need the perfect words. You need a next step.</p>
+        </div>
+        <div class="crisis-links">
+          <a href="#"><span>Call or text the 988 Lifeline</span><span class="num">988</span></a>
+          <a href="#"><span>Warning signs of suicide risk in kids</span><span>→</span></a>
+          <a href="#"><span>What happens if your child is hospitalized</span><span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="logo">Cleras</div>
+      <div class="footer-bottom">
+        <span>© 2026 Cleras. Educational content only — not a substitute for professional care.</span>
+        <span>In an emergency, call or text 988, or call 911.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
