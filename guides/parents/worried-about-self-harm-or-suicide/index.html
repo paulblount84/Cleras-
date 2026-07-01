@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Worried My Child May Be Self-Harming or Suicidal — Cleras</title>
+<meta name="description" content="A clinician-written guide for parents who are worried their child may be self-harming or thinking about suicide. What to look for, how to ask, and what to do next.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1B2A41;
+    --ink-deep: #131F30;
+    --paper: #FAF7F2;
+    --paper-warm: #F3EEE5;
+    --clay: #C1693C;
+    --clay-deep: #A8552E;
+    --teal: #2F6E66;
+    --teal-deep: #25564F;
+    --slate: #5B6B7C;
+    --text: #1A1A1A;
+    --line: #DDD5C7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Public Sans', sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* Crisis utility bar */
+  .crisis-bar {
+    background: var(--ink-deep);
+    color: var(--paper);
+    font-size: 13.5px;
+    padding: 9px 0;
+  }
+  .crisis-bar .wrap { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; text-align: center; }
+  .crisis-bar strong { color: #F2C9B0; font-weight: 600; }
+  .crisis-bar .sep { opacity: 0.4; }
+
+  /* Header */
+  header.site {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    position: sticky; top: 0; z-index: 50;
+  }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  nav.main { display: flex; gap: 28px; }
+  nav.main a { font-size: 15px; font-weight: 500; color: var(--ink); padding: 6px 0; border-bottom: 2px solid transparent; }
+  nav.main a:hover { border-bottom-color: var(--clay); }
+  .search-btn { background: none; border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; font-size: 14px; color: var(--slate); cursor: pointer; }
+  @media (max-width: 860px) { nav.main { display: none; } }
+
+  /* Breadcrumb */
+  .breadcrumb { padding: 18px 0 0; font-size: 13.5px; color: var(--slate); }
+  .breadcrumb a { color: var(--slate); }
+  .breadcrumb a:hover { color: var(--clay-deep); }
+  .breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+  .breadcrumb .current { color: var(--ink); font-weight: 600; }
+
+  /* Article hero */
+  .article-hero { padding: 20px 0 24px; }
+  .article-hero .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--clay-deep); margin-bottom: 10px;
+  }
+  .article-hero h1 { font-size: clamp(26px, 4vw, 38px); margin-bottom: 12px; max-width: 660px; }
+  .article-hero .lede { font-size: 17px; color: var(--slate); max-width: 620px; margin-bottom: 16px; line-height: 1.6; }
+  .meta { display: flex; align-items: center; gap: 20px; font-size: 13px; color: var(--slate); flex-wrap: wrap; }
+  .meta .author { font-weight: 600; color: var(--ink); }
+  .meta .sep { opacity: 0.4; }
+
+  /* Urgent callout */
+  @keyframes crisis-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(201, 64, 64, 0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(201, 64, 64, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(201, 64, 64, 0); }
+  }
+  .urgent-box {
+    background: var(--teal);
+    color: #fff;
+    border-radius: 12px;
+    padding: 18px 18px 20px;
+    margin: 20px 0;
+    border: 2px solid rgba(201, 64, 64, 0.6);
+    animation: crisis-pulse 2s ease-out infinite;
+  }
+  .urgent-box h3 { color: #fff; font-size: 16px; margin-bottom: 4px; }
+  .urgent-box > p { font-size: 13.5px; color: #DCEAE7; margin-bottom: 14px; }
+  .urgent-box .links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .urgent-box .links a {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    color: #fff;
+    min-height: 72px;
+  }
+  .urgent-box .links a:hover { background: rgba(255,255,255,0.22); }
+  .urgent-box .links .action-num {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+  }
+  .urgent-box .links .action-label {
+    font-size: 11.5px;
+    color: #DCEAE7;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* Table of contents */
+  .toc {
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 20px 0 28px;
+  }
+  .toc h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--slate); margin-bottom: 10px; font-family: 'Public Sans', sans-serif; font-weight: 700; }
+  .toc ol { list-style: none; display: flex; flex-direction: column; gap: 6px; counter-reset: toc; }
+  .toc ol li { counter-increment: toc; display: flex; align-items: baseline; gap: 10px; }
+  .toc ol li::before { content: counter(toc); font-size: 12px; font-weight: 700; color: var(--clay); min-width: 16px; }
+  .toc ol a { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .toc ol a:hover { color: var(--clay-deep); }
+
+  /* Article body */
+  .article-body { padding-bottom: 48px; }
+  .article-body section { margin-bottom: 36px; }
+  .article-body h2 {
+    font-size: clamp(19px, 3vw, 24px);
+    margin-bottom: 10px;
+    padding-top: 4px;
+  }
+  .article-body h3 { font-size: 17px; margin-bottom: 8px; margin-top: 20px; }
+  .article-body p { font-size: 16px; margin-bottom: 12px; color: #2A2A2A; }
+  .article-body p:last-child { margin-bottom: 0; }
+  .article-body ul, .article-body ol { margin: 0 0 12px 20px; }
+  .article-body li { font-size: 16px; margin-bottom: 6px; color: #2A2A2A; }
+  .article-body strong { color: var(--ink); font-weight: 600; }
+
+  /* Callout boxes */
+  .callout {
+    border-left: 4px solid var(--clay);
+    background: var(--paper-warm);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+  }
+  .callout.teal { border-left-color: var(--teal); }
+  .callout h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--clay-deep); margin-bottom: 6px; font-family: 'Public Sans', sans-serif; font-weight: 700; }
+  .callout.teal h4 { color: var(--teal-deep); }
+  .callout p, .callout li { font-size: 14.5px; color: #2A2A2A; }
+  .callout ul { margin-left: 18px; }
+
+  /* Myth/fact boxes */
+  .myth-box {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  .myth-box .myth {
+    background: #F5EDEA;
+    padding: 12px 16px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--clay-deep);
+  }
+  .myth-box .myth::before { content: "MYTH  "; font-size: 11px; letter-spacing: 0.08em; display: block; margin-bottom: 3px; opacity: 0.7; }
+  .myth-box .fact {
+    background: #fff;
+    padding: 12px 16px;
+    font-size: 14.5px;
+    color: #2A2A2A;
+  }
+  .myth-box .fact::before { content: "FACT  "; font-size: 11px; letter-spacing: 0.08em; display: block; margin-bottom: 3px; font-weight: 700; color: var(--teal-deep); }
+
+  /* Risk level guide */
+  .risk-table { display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
+  .risk-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+  .risk-row.low { border-left: 4px solid #6BAA8E; }
+  .risk-row.medium { border-left: 4px solid #E8A838; }
+  .risk-row.high { border-left: 4px solid #C94040; }
+  .risk-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .risk-row.low .risk-label { color: #3A7A5E; }
+  .risk-row.medium .risk-label { color: #A0721A; }
+  .risk-row.high .risk-label { color: #C94040; }
+  .risk-content p { font-size: 14px; color: #2A2A2A; margin-bottom: 4px; }
+  .risk-content .action { font-size: 14px; font-weight: 600; color: var(--ink); }
+  @media (max-width: 540px) { .risk-row { grid-template-columns: 1fr; } }
+
+  /* Divider */
+  .divider { height: 1px; background: var(--line); margin: 32px 0; }
+
+  /* Related articles */
+  .related { padding: 48px 0 72px; border-top: 1px solid var(--line); }
+  .related h2 { font-size: 21px; margin-bottom: 28px; }
+  .related-list { display: flex; flex-direction: column; }
+  .related-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 24px;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.15s ease, padding-left 0.15s ease;
+  }
+  .related-row:first-child { border-top: 1px solid var(--line); }
+  .related-row:hover { background: var(--paper-warm); padding-left: 10px; }
+  .related-row .tag { font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--teal-deep); }
+  .related-row .title { font-family: 'Fraunces', serif; font-size: 15.5px; font-weight: 500; color: var(--ink); }
+  .related-row .arrow { color: var(--clay); font-size: 15px; text-align: right; }
+
+  /* Footer */
+  footer { background: var(--ink-deep); color: #C9D2DC; padding: 40px 0 24px; }
+  .footer-bottom { font-size: 13px; color: #7E8CA0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer .logo { color: var(--paper); margin-bottom: 8px; font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div class="crisis-bar">
+    <div class="wrap">
+      <span>In crisis right now?</span>
+      <span class="sep">·</span>
+      <span><strong>Call or text 988</strong></span>
+      <span class="sep">·</span>
+      <a href="#crisis-resources" style="text-decoration: underline;">See all crisis resources →</a>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="../../../index.html">Cleras</a>
+      <nav class="main">
+        <a href="../../../index.html">Conditions</a>
+        <a href="../../../index.html#crisis">Crisis &amp; Safety</a>
+        <a href="../index.html">For Families</a>
+        <a href="#">For Professionals</a>
+        <a href="#">About</a>
+      </nav>
+      <button class="search-btn">Search</button>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="article-wrap">
+      <a href="../../../index.html">Home</a><span class="sep">/</span>
+      <a href="../index.html">For Parents &amp; Caregivers</a><span class="sep">/</span>
+      <span class="current">Self-harm &amp; Suicide: A Parent's Guide</span>
+    </div>
+  </div>
+
+  <article>
+    <div class="article-hero">
+      <div class="article-wrap">
+        <span class="eyebrow">For Parents &amp; Caregivers · Crisis &amp; Safety</span>
+        <h1>I'm worried my child may be self-harming or thinking about suicide</h1>
+        <p class="lede">What to look for, how to start the conversation, and exactly what to do — from a clinician who has sat with families in these moments many times.</p>
+        <div class="meta">
+          <span class="author">Written by a Licensed Clinical Social Worker</span>
+          <span class="sep">·</span>
+          <span>Clinically reviewed</span>
+          <span class="sep">·</span>
+          <span>12 min read</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-wrap">
+
+      <div class="urgent-box" id="crisis-resources">
+        <h3>If you think your child is in immediate danger</h3>
+        <p>Don't wait to finish reading. Get help now.</p>
+        <div class="links">
+          <a href="tel:911">
+            <span class="action-num">911</span>
+            <span class="action-label">Immediate danger</span>
+          </a>
+          <a href="tel:988">
+            <span class="action-num">988</span>
+            <span class="action-label">Crisis — call or text</span>
+          </a>
+          <a href="sms:741741">
+            <span class="action-num">741741</span>
+            <span class="action-label">Text HOME to chat</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="toc" aria-label="Table of contents">
+        <h4>In this guide</h4>
+        <ol>
+          <li><a href="#first">If you're reading this right now</a></li>
+          <li><a href="#difference">Self-harm vs. suicidal thinking: understanding the difference</a></li>
+          <li><a href="#signs">Warning signs to take seriously</a></li>
+          <li><a href="#ask">The question parents are afraid to ask</a></li>
+          <li><a href="#conversation">How to have the conversation</a></li>
+          <li><a href="#what-to-do">What to do based on what you're seeing</a></li>
+          <li><a href="#myths">Common myths that get in the way</a></li>
+          <li><a href="#after">After the conversation: what comes next</a></li>
+        </ol>
+      </nav>
+
+      <div class="article-body">
+
+        <section id="first">
+          <h2>If you're reading this right now</h2>
+          <p>You're scared. Maybe your child said something that stopped you cold. Maybe you found something — a text, a mark on their arm, a journal entry. Maybe it's just a feeling you can't shake, and you don't know if you're overreacting or not seeing enough.</p>
+          <p>Whatever brought you here, I want you to know: the fact that you're asking this question means you're paying attention. That matters more than you know.</p>
+          <p>This guide is written to give you what you actually need — not reassurance that everything is fine, and not panic. Just clear, honest information so you can take the right next step.</p>
+        </section>
+
+        <section id="difference">
+          <h2>Self-harm vs. suicidal thinking: understanding the difference</h2>
+          <p>These two things often get talked about together, and they can overlap — but they are not the same thing, and understanding the difference helps you respond to each one appropriately.</p>
+
+          <h3>Self-harm (non-suicidal self-injury)</h3>
+          <p>Self-harm — most commonly cutting, but also burning, hitting, or scratching — is typically not an attempt to end one's life. In most cases, it functions as a way to cope with overwhelming emotional pain that a young person doesn't yet have the tools to manage differently. It is a signal that your child is suffering and needs support, but it does not automatically mean they want to die.</p>
+          <p>That said, self-harm should always be taken seriously. It is not a phase to wait out, and it is not attention-seeking in the dismissive sense of that phrase — it is a young person communicating that something is very wrong.</p>
+
+          <h3>Suicidal thinking</h3>
+          <p>Suicidal thinking exists on a spectrum. On one end is <strong>passive ideation</strong> — thoughts like "I wish I wasn't here" or "Everyone would be better off without me" — which, while serious, is different from active planning. On the other end is <strong>active ideation with a plan</strong>, which is a psychiatric emergency requiring immediate action.</p>
+          <p>Both ends of this spectrum deserve a response. The difference is the urgency and the type of response needed.</p>
+
+          <div class="callout teal">
+            <h4>Important to know</h4>
+            <p>Self-harm and suicidal thinking can co-exist. A young person who self-harms may also have thoughts of suicide. This is why any disclosure of self-harm should include a direct, calm conversation about suicidal thinking as well.</p>
+          </div>
+        </section>
+
+        <section id="signs">
+          <h2>Warning signs to take seriously</h2>
+          <p>No single sign is definitive on its own. What you're looking for is a pattern of change — especially changes that are new, persistent, or intensifying.</p>
+
+          <h3>Behavioral changes</h3>
+          <ul>
+            <li>Withdrawal from friends, family, and activities they used to enjoy</li>
+            <li>Giving away prized possessions</li>
+            <li>Saying goodbye in ways that feel unusual or final</li>
+            <li>Increased secrecy, especially around their body (long sleeves in summer, avoiding situations where skin is visible)</li>
+            <li>Researching methods of suicide or self-harm</li>
+            <li>A sudden, unexplained calm after a period of depression — this can sometimes indicate a decision has been made</li>
+          </ul>
+
+          <h3>What they're saying</h3>
+          <ul>
+            <li>"I wish I was dead" or "I want to kill myself" — even if said casually or in anger, take it seriously</li>
+            <li>"I can't do this anymore"</li>
+            <li>"Nobody would care if I was gone"</li>
+            <li>"I just want the pain to stop"</li>
+            <li>"Things would be better without me"</li>
+          </ul>
+
+          <h3>Emotional signs</h3>
+          <ul>
+            <li>Hopelessness — especially statements that the future won't get better</li>
+            <li>Expressions of feeling trapped or like there's no way out</li>
+            <li>Extreme emotional swings, or a flatness that is uncharacteristic</li>
+            <li>Intense shame, guilt, or feeling like a burden</li>
+          </ul>
+
+          <div class="callout">
+            <h4>A note on risk factors</h4>
+            <p>Certain experiences increase risk and are worth knowing about: a previous attempt, a recent loss or rejection, LGBTQ+ youth facing unsupportive environments, a family history of suicide, access to lethal means (especially firearms), and substance use. None of these mean something will happen — but each one is a reason to take warning signs more seriously, not less.</p>
+          </div>
+        </section>
+
+        <section id="ask">
+          <h2>The question parents are afraid to ask</h2>
+          <p>One of the most persistent and damaging myths in mental health is this: <em>if you ask a child about suicide, you might plant the idea.</em></p>
+          <p>This is not true. Research consistently shows the opposite — asking directly about suicide does not increase risk, and for many young people, being asked directly is a profound relief. It signals that you can handle the truth, and that they don't have to carry it alone anymore.</p>
+          <p>What does increase risk is the opposite: leaving the question unasked, communicating — even unintentionally — that this topic is too scary or shameful to discuss.</p>
+
+          <div class="callout teal">
+            <h4>Ask directly</h4>
+            <p>The most effective question is simple and specific: <strong>"Are you thinking about suicide?"</strong> Not "You're not thinking about hurting yourself, are you?" — which invites a "no." Not "Are you okay?" — which is too easy to deflect. Ask directly, and then be quiet and listen.</p>
+          </div>
+        </section>
+
+        <section id="conversation">
+          <h2>How to have the conversation</h2>
+          <p>You don't need to be a therapist to have this conversation well. You need to be present, calm, and willing to hear whatever comes.</p>
+
+          <h3>Before you start</h3>
+          <ul>
+            <li>Choose a private, low-pressure setting — a car ride is often ideal because there's no eye contact and neither person can leave easily</li>
+            <li>Put your phone away</li>
+            <li>Prepare yourself to stay calm regardless of what you hear — your child will be watching your reaction closely to decide how much to share</li>
+          </ul>
+
+          <h3>What to say</h3>
+          <p>Start with what you've noticed, not with an accusation or alarm: <em>"I've noticed you seem like you're carrying something heavy lately, and I want to make sure I'm not missing anything. Are you thinking about suicide or hurting yourself?"</em></p>
+          <p>If they say yes, or say something that sounds like yes: <em>"Thank you for telling me. I'm not going anywhere. Can you tell me more about what that's been like for you?"</em></p>
+          <p>If they deny it but you're still concerned: <em>"Okay. I hear you. But I want you to know that if that ever changes, or if things get darker, I want to be the person you come to. I can handle it."</em></p>
+
+          <h3>What not to say</h3>
+          <ul>
+            <li>Don't say "You have so much to live for" — this can feel dismissive and increase shame</li>
+            <li>Don't say "That would destroy our family" — this places the burden of your wellbeing on them</li>
+            <li>Don't promise to keep it a secret — you may need to act on what they tell you</li>
+            <li>Don't panic visibly — it will shut the conversation down</li>
+            <li>Don't immediately jump to problem-solving — listen first</li>
+          </ul>
+        </section>
+
+        <section id="what-to-do">
+          <h2>What to do based on what you're seeing</h2>
+          <p>The right next step depends on what's actually happening. Here's a clear framework:</p>
+
+          <div class="risk-table">
+            <div class="risk-row high">
+              <div class="risk-label">Immediate danger</div>
+              <div class="risk-content">
+                <p>Your child has a plan, has access to means, or has already made an attempt. They may be unreachable, unresponsive, or have taken something.</p>
+                <p class="action">Call 911 immediately. Do not leave them alone. Remove access to any means you can safely control (medications, sharp objects, firearms).</p>
+              </div>
+            </div>
+            <div class="risk-row medium">
+              <div class="risk-label">Active crisis, not immediate</div>
+              <div class="risk-content">
+                <p>Your child has disclosed active suicidal thinking, with or without a specific plan, but is physically safe right now.</p>
+                <p class="action">Call or text 988 together, or take them to the nearest emergency department. Do not leave them alone. Contact their therapist or prescriber if they have one.</p>
+              </div>
+            </div>
+            <div class="risk-row low">
+              <div class="risk-label">Concerning but stable</div>
+              <div class="risk-content">
+                <p>Your child has expressed passive ideation ("I wish I wasn't here"), is self-harming without suicidal intent, or you're seeing warning signs but no disclosure.</p>
+                <p class="action">Schedule a mental health evaluation as soon as possible — ideally within days, not weeks. Increase your presence at home. Remove or secure lethal means. Keep the conversation open.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout">
+            <h4>On removing access to means</h4>
+            <p>This is one of the most evidence-based interventions that exists — and one of the most underused. If there are firearms in the home, they should be stored outside the home during this period, or locked with ammunition stored separately. Medications should be inventoried and secured. This is not a permanent measure — it is a bridge while your child gets support. The research is clear: reducing access to means saves lives.</p>
+          </div>
+        </section>
+
+        <section id="myths">
+          <h2>Common myths that get in the way</h2>
+
+          <div class="myth-box">
+            <div class="myth">Kids who talk about suicide are just looking for attention.</div>
+            <div class="fact">All communication about suicide deserves a response. "Attention-seeking" is a phrase that has caused real harm — because it has led parents and clinicians to dismiss disclosures that turned out to be genuine. Every statement about suicide is a statement that someone is in pain. Respond accordingly.</div>
+          </div>
+
+          <div class="myth-box">
+            <div class="myth">If they were really serious, they wouldn't tell anyone.</div>
+            <div class="fact">Most people who die by suicide communicated their intent beforehand — to a friend, a family member, or in writing. Disclosure is often a call for connection and intervention, not evidence that nothing will happen.</div>
+          </div>
+
+          <div class="myth-box">
+            <div class="myth">They cut themselves to get attention, not because they're really hurting.</div>
+            <div class="fact">Self-harm is a symptom of real emotional pain, regardless of what function it serves. The fact that it may get attention doesn't make the pain less real or the behavior less serious.</div>
+          </div>
+
+          <div class="myth-box">
+            <div class="myth">Asking about suicide will make them think about it.</div>
+            <div class="fact">Research consistently shows this is false. Asking directly about suicide does not increase suicidal thinking. For most young people, being asked directly — calmly and without judgment — provides relief.</div>
+          </div>
+        </section>
+
+        <section id="after">
+          <h2>After the conversation: what comes next</h2>
+          <p>Whether your child disclosed something serious or you're still not sure, there are several things worth doing in the days that follow.</p>
+
+          <h3>Get a professional assessment</h3>
+          <p>A single conversation with you — however good — is not a substitute for a professional evaluation. A mental health clinician can assess risk more systematically, identify what's driving what you're seeing, and recommend the right level of care. If your child already has a therapist, contact them immediately. If they don't, this is the time to get one — and "as soon as possible" means within days, not the next available opening in six weeks.</p>
+
+          <h3>Increase your presence</h3>
+          <p>This doesn't mean surveillance — it means showing up more. More meals together. More check-ins that aren't about the problem ("I just wanted to sit with you"). More explicit expressions that you're not going anywhere. Research on adolescent resilience consistently points to parental connection as one of the most protective factors that exists.</p>
+
+          <h3>Take care of yourself</h3>
+          <p>This is not a footnote. Parents who discover their child is suicidal or self-harming often experience their own acute distress — shock, guilt, helplessness, and fear that can be overwhelming. You will be more useful to your child if you have support too. That might mean a therapist, a trusted friend, or a parent support group. It does not mean handling this alone.</p>
+
+          <div class="callout teal">
+            <h4>A word on guilt</h4>
+            <p>Parents in this situation almost universally ask: "Did I miss something? Did I cause this?" The honest answer is that mental illness and suicidal thinking are not caused by any single parenting decision. You are not the reason this is happening. The fact that you're here, reading this, trying to figure out how to help — that is what good parenting looks like in a hard moment.</p>
+          </div>
+        </section>
+
+      </div><!-- end article-body -->
+    </div><!-- end article-wrap -->
+  </article>
+
+  <div class="article-wrap">
+    <div class="divider"></div>
+  </div>
+
+  <section class="related">
+    <div class="article-wrap">
+      <h2>Read next</h2>
+      <div class="related-list">
+        <a class="related-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">Is this normal teen behavior, or something more?</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="related-row" href="#">
+          <span class="tag">Guide</span>
+          <span class="title">When your teen refuses to engage in treatment</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="related-row" href="#">
+          <span class="tag">Crisis</span>
+          <span class="title">What happens during a psychiatric evaluation</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="related-row" href="#">
+          <span class="tag">Condition</span>
+          <span class="title">Depression in adolescents: what parents need to know</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="logo">Cleras</div>
+      <div class="footer-bottom">
+        <span>© 2026 Cleras. Educational content only — not a substitute for professional care.</span>
+        <span>In an emergency, call or text 988, or call 911.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
